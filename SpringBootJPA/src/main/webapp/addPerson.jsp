@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Homepage</title>
+<title>Add Person</title>
 </head>
 <body>
 <form action="addPerson">
@@ -13,11 +13,5 @@
 	Enter the Technology:<input type="text" name="technology"><br>
 	<input type="submit"><br>
 </form>
-
-<form action="getPerson">
-	Enter the Person ID to Search:<input type="text" name="personId"><br>
-	<input type="submit"><br>
-</form>
-
 </body>
 </html>

@@ -9,6 +9,7 @@ public class Person
 	@Id
 	int personId;
 	String personName;
+	String technology;
 	
 	public int getPersonId() {
 		return personId;
@@ -21,5 +22,16 @@ public class Person
 	}
 	public void setPersonName(String personName) {
 		this.personName = personName;
+	}
+	public String getTechnology() {
+		return technology;
+	}
+	public void setTechnology(String technology) {
+		this.technology = technology;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", personName=" + personName + ", technology=" + technology + "]";
 	}
 }
