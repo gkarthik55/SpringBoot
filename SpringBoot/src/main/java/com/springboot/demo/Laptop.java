@@ -3,7 +3,7 @@ package com.springboot.demo;
 import org.springframework.stereotype.Component;
 
 @Component("laptop")
-//@Component("laptop") we can change the default instance name created Spring framework.
+//@Component("laptop") we can change the default instance name created by Spring framework.
 public class Laptop {
 
 	private int laptopId;

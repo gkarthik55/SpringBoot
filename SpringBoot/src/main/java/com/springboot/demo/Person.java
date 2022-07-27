@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-//Hey Spring framework, this is the class for which i need an object. Mention it as @Component.
+// Spring @Component annotation is used to denote a class as Component. It means that Spring framework will autodetect these 
+// classes for dependency injection when annotation-based configuration and classpath scanning is used.
 @Component
 //If we want to create a Prototype style of Object creation. Then mention it as @Scope(value="prototype"). By default its singleton.
 @Scope(value="prototype")
@@ -15,6 +16,8 @@ public class Person
 	private String personName;
 	private String personLocation;
 	
+	// Spring @Autowired annotation is used for automatic dependency injection. 
+	// Spring framework is built on dependency injection and we inject the class dependencies through spring bean configuration file.
 	@Autowired //Searches by Type
 	//@Qualifier("laptop") //Searches by Name
 	private Laptop laptop;

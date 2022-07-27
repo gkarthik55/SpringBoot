@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonResource 
 {
 	//@RequestMapping("persons")
+	// The @GetMapping annotation is a specialized version of @RequestMapping annotation 
+	// that acts as a shortcut for @RequestMapping(method = RequestMethod. GET). 
 	@GetMapping("persons")
 	public List<Person> getPersonList()
 	{

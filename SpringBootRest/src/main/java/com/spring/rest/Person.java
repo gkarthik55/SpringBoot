@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
+// The @Entity annotation specifies that the class is an entity and is mapped to a database table.
 public class Person 
 {
 	@Id
+	// The @Id annotation specifies the primary key of an entity
 	private int id;
 	private String name;
 	private String location;
