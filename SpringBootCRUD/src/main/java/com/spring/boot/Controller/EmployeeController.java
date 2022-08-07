@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.boot.Entity.Employee;
+import com.spring.boot.Exception.BusinessException;
+import com.spring.boot.Exception.ControllerException;
 import com.spring.boot.Service.EmployeeServiceInterface;
 
 @RestController
@@ -45,13 +47,28 @@ public class EmployeeController
 	}
 	
 	@PostMapping("/addemployee")
-	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee)
+	public ResponseEntity<?> addEmployee(@RequestBody Employee employee)
 	{
-		Employee emp = employeeServiceInterface.addEmployee(employee);
-		
-		ResponseEntity<Employee> response = new ResponseEntity<>(emp, HttpStatus.CREATED);
-		
-		return response;
+		try
+		{
+			Employee emp = employeeServiceInterface.addEmployee(employee);
+			
+			ResponseEntity<Employee> response = new ResponseEntity<>(emp, HttpStatus.CREATED);
+			
+			return response;
+		}
+		catch(BusinessException e)
+		{
+			ControllerException ce = new ControllerException(e.getErrorCode(),e.getErrorMessage());
+			
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST );
+		}
+		catch(Exception e)
+		{
+			ControllerException ce = new ControllerException("608", "Something went wrong in the emplooyee controller");
+			
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST );
+		}
 	}
 	
 	@DeleteMapping("/deleteemployee/{id}")
